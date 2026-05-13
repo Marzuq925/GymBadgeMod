@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "badgemod",
+	"version": "${version}",
+	"name": "Marz's Gym Badge Mod",
+	"description": "Mod to create custom gym badges for cobblemon",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/badgemod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.marz.badgemod.MarzsGymBadgeMod"
+		],
+		"fabric-datagen": [
+			"net.marz.badgemod.MarzsGymBadgeModDataGenerator"
+		],
+		"client": [
+			"net.marz.badgemod.MarzsGymBadgeModClient"
+		]
+	},
+	"mixins": [
+		"badgemod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
