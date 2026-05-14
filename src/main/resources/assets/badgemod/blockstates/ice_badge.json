@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "face=up": {
+      "model": "badgemod:block/ice_badge",
+      "uvlock": false
+    },
+    "face=down": {
+      "model": "badgemod:block/ice_badge",
+      "x": 180,
+      "uvlock": false
+    },
+    "face=north": {
+      "model": "badgemod:block/ice_badge",
+      "x": 90,
+      "uvlock": false
+    },
+    "face=east": {
+      "model": "badgemod:block/ice_badge",
+      "x": 90,
+      "y": 90,
+      "uvlock": false
+    },
+    "face=south": {
+      "model": "badgemod:block/ice_badge",
+      "x": 90,
+      "y": 180,
+      "uvlock": false
+    },
+    "face=west": {
+      "model": "badgemod:block/ice_badge",
+      "x": 90,
+      "y": 270,
+      "uvlock": false
+    }
+  }
+}
