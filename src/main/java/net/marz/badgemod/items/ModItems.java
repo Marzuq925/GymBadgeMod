@@ -14,10 +14,12 @@ public class ModItems {
 
     public static final Item STEEL_BADGE = registerItem( "steel_badge", new Item(new Item.Settings()));
     public static final Item ICE_BADGE = registerItem( "ice_badge", new Item(new Item.Settings()));
+    public static final Item POISON_BADGE = registerItem( "ice_badge", new Item(new Item.Settings()));
+    public static final Item GHOST_BADGE = registerItem( "ghost_badge", new Item(new Item.Settings()));
 
     private static Item registerItem(String name,Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(MarzsGymBadgeMod.MOD_ID, name), item);
-    };
+    }
 
     public static void registerModItems() {
         MarzsGymBadgeMod.LOGGER.info("Registering Mod Items for" + MarzsGymBadgeMod.MOD_ID);

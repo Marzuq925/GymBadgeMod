@@ -1,4 +1,6 @@
 {
   "block.badgemod.ice_badge": "Ice Badge",
-  "block.badgemod.steel_badge": "Steel Badge"
+  "block.badgemod.steel_badge": "Steel Badge",
+  "block.badgemod.poison_badge": "Poison Badge",
+  "block.badgemod.ghost_badge": "Ghost Badge"
 }
