@@ -1,3 +1,6 @@
 {
-  "parent": "badgemod:block/ice_badge"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "badgemod:item/ice_badge"
+  }
 }

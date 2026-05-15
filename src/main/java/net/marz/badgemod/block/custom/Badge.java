@@ -1,11 +1,12 @@
 package net.marz.badgemod.block.custom;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.hit.BlockHitResult;
@@ -15,12 +16,14 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.marz.badgemod.MarzsGymBadgeMod;
+import net.minecraft.world.WorldAccess;
 
 
-public class Badge extends Block {
+public class Badge extends Block implements Waterloggable {
 
-   public static final BooleanProperty FLAT = BooleanProperty.of("flat");
+   public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
    public static final EnumProperty<Direction> FACE= EnumProperty.of("face", Direction.class);
+   public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
    private static final VoxelShape UP_SHAPE =
            Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 2.0D, 14.0D);
@@ -43,13 +46,12 @@ public class Badge extends Block {
 
    public Badge(Settings settings) {
         super(settings);
-        this.setDefaultState(getDefaultState().with(FACE, Direction.UP));
-
+        setDefaultState(getDefaultState().with(FACE, Direction.UP).with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACE);
+        builder.add(FACE, FACING, WATERLOGGED);
     }
 
     @Override
@@ -60,8 +62,23 @@ public class Badge extends Block {
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction direction = ctx.getSide();
+        Direction playerFacing = ctx.getHorizontalPlayerFacing().getOpposite();
+        boolean inWater = ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER);
+        return super.getDefaultState().with(FACE, direction).with(FACING, playerFacing).with(WATERLOGGED, inWater);
+    }
 
-        return super.getDefaultState().with(FACE, direction);
+    @Override
+    public FluidState getFluidState(BlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
+    }
+
+    @Override
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        if (state.get(WATERLOGGED)) {
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        }
+
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
     @Override

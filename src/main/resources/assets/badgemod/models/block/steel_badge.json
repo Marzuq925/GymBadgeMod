@@ -4,7 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "badgemod:block/steel_badge",
-		"particle": "badgemod:block/steel_badge"
+		"particle": "minecraft:block/copper_block"
 	},
 	"elements": [
 		{
