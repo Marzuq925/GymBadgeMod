@@ -16,6 +16,9 @@ public class ModItems {
     public static final Item ICE_BADGE = registerItem( "ice_badge", new Item(new Item.Settings()));
     public static final Item POISON_BADGE = registerItem( "ice_badge", new Item(new Item.Settings()));
     public static final Item GHOST_BADGE = registerItem( "ghost_badge", new Item(new Item.Settings()));
+    public static final Item DRAGON_BADGE = registerItem( "ghost_badge", new Item(new Item.Settings()));
+    public static final Item BUG_BADGE = registerItem( "bug_badge", new Item(new Item.Settings()));
+
 
     private static Item registerItem(String name,Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(MarzsGymBadgeMod.MOD_ID, name), item);

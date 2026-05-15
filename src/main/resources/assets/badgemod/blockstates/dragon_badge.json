@@ -1,0 +1,73 @@
+{
+  "variants": {
+    "face=up,facing=north": {
+      "model": "badgemod:block/dragon_badge",
+
+      "uvlock": false
+    },
+    "face=up,facing=east": {
+      "model": "badgemod:block/dragon_badge",
+      "y": 90,
+      "uvlock": false
+    },
+    "face=up,facing=south": {
+      "model": "badgemod:block/dragon_badge",
+      "y": 180,
+      "uvlock": false
+    },
+    "face=up,facing=west": {
+      "model": "badgemod:block/dragon_badge",
+      "y": 270,
+      "uvlock": false
+    },
+
+    "face=down,facing=north": {
+      "model": "badgemod:block/dragon_badge",
+      "x": 180,
+
+      "uvlock": false
+    },
+    "face=down,facing=east": {
+      "model": "badgemod:block/dragon_badge",
+      "x": 180,
+      "y": 90,
+      "uvlock": false
+    },
+    "face=down,facing=south": {
+      "model": "badgemod:block/dragon_badge",
+      "x": 180,
+      "y": 180,
+      "uvlock": false
+    },
+    "face=down,facing=west": {
+      "model": "badgemod:block/dragon_badge",
+      "x": 180,
+      "y": 270,
+      "uvlock": false
+    },
+    "face=north": {
+      "model": "badgemod:block/dragon_badge",
+      "x": 90,
+
+      "uvlock": false
+    },
+    "face=east": {
+      "model": "badgemod:block/dragon_badge",
+      "x": 90,
+      "y": 90,
+      "uvlock": false
+    },
+    "face=south": {
+      "model": "badgemod:block/dragon_badge",
+      "x": 90,
+      "y": 180,
+      "uvlock": false
+    },
+    "face=west": {
+      "model": "badgemod:block/dragon_badge",
+      "x": 90,
+      "y": 270,
+      "uvlock": false
+    }
+  }
+}
