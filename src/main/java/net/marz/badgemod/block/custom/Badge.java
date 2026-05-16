@@ -1,6 +1,7 @@
 package net.marz.badgemod.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -9,6 +10,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -16,6 +18,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.marz.badgemod.MarzsGymBadgeMod;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
 
@@ -24,6 +27,7 @@ public class Badge extends Block implements Waterloggable {
    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
    public static final EnumProperty<Direction> FACE= EnumProperty.of("face", Direction.class);
    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+    public static final BooleanProperty UP_SCALE = BooleanProperty.of("upscale");
 
    private static final VoxelShape UP_SHAPE =
            Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 2.0D, 14.0D);
@@ -46,12 +50,12 @@ public class Badge extends Block implements Waterloggable {
 
    public Badge(Settings settings) {
         super(settings);
-        setDefaultState(getDefaultState().with(FACE, Direction.UP).with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+        setDefaultState(getDefaultState().with(FACE, Direction.UP).with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(UP_SCALE, false));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACE, FACING, WATERLOGGED);
+        builder.add(FACE, FACING, WATERLOGGED, UP_SCALE);
     }
 
     @Override
@@ -65,6 +69,21 @@ public class Badge extends Block implements Waterloggable {
         Direction playerFacing = ctx.getHorizontalPlayerFacing().getOpposite();
         boolean inWater = ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER);
         return super.getDefaultState().with(FACE, direction).with(FACING, playerFacing).with(WATERLOGGED, inWater);
+    }
+
+    @Override
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+       if (!world.isClient) {
+           if (player.isSneaking()) {
+               // Shift + right click
+               boolean upscale = !state.get(UP_SCALE);
+               world.setBlockState(pos, state.with(UP_SCALE, upscale));
+           } else {
+               // Normal right click
+
+           }
+       }
+        return ActionResult.success(world.isClient);
     }
 
     @Override
