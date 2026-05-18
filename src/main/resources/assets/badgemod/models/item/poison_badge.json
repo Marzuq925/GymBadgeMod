@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "badgemod:item/ice_badge"
+    "layer0": "badgemod:item/poison_badge"
   }
 }

@@ -20,6 +20,23 @@ public class ModBlocks {
     public static final Block steel_badge = registerBlock("steel_badge",
             new Badge(AbstractBlock.Settings.create().strength(0.8f, 50f).sounds(BlockSoundGroup.COPPER).nonOpaque()));
 
+    public static final Block poison_badge = registerBlock("poison_badge",
+            new Badge(AbstractBlock.Settings.create().strength(0.8f, 50f).sounds(BlockSoundGroup.GLASS).nonOpaque()));
+
+    public static final Block ghost_badge = registerBlock("ghost_badge",
+            new Badge(AbstractBlock.Settings.create().strength(0.8f, 50f).sounds(BlockSoundGroup.WOOL).nonOpaque()));
+
+
+    public static final Block dragon_badge = registerBlock("dragon_badge",
+            new Badge(AbstractBlock.Settings.create().strength(0.8f, 50f).sounds(BlockSoundGroup.DEEPSLATE).nonOpaque()));
+
+
+    public static final Block bug_badge = registerBlock("bug_badge",
+            new Badge(AbstractBlock.Settings.create().strength(0.8f, 50f).sounds(BlockSoundGroup.COBWEB).nonOpaque()));
+
+    public static final Block dark_badge = registerBlock("dark_badge",
+            new Badge(AbstractBlock.Settings.create().strength(0.8f, 50f).sounds(BlockSoundGroup.TUFF).nonOpaque()));
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(MarzsGymBadgeMod.MOD_ID, name), block);
@@ -39,6 +56,26 @@ public class ModBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.add(ModBlocks.steel_badge);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.add(ModBlocks.poison_badge);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.add(ModBlocks.ghost_badge);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.add(ModBlocks.dragon_badge);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.add(ModBlocks.bug_badge);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.add(ModBlocks.dark_badge);
         });
     }
 }
