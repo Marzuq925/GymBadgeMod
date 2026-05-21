@@ -37,6 +37,9 @@ public class ModBlocks {
     public static final Block dark_badge = registerBlock("dark_badge",
             new Badge(AbstractBlock.Settings.create().strength(0.8f, 50f).sounds(BlockSoundGroup.TUFF).nonOpaque()));
 
+    public static final Block ground_badge = registerBlock("ground_badge",
+            new Badge(AbstractBlock.Settings.create().strength(0.8f, 50f).sounds(BlockSoundGroup.TUFF).nonOpaque()));
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(MarzsGymBadgeMod.MOD_ID, name), block);
@@ -76,6 +79,10 @@ public class ModBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.add(ModBlocks.dark_badge);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.add(ModBlocks.ground_badge);
         });
     }
 }

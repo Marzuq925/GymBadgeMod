@@ -6,10 +6,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.state.property.EnumProperty;
-import net.minecraft.state.property.Properties;
+import net.minecraft.state.property.*;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -27,7 +24,8 @@ public class Badge extends Block implements Waterloggable {
    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
    public static final EnumProperty<Direction> FACE= EnumProperty.of("face", Direction.class);
    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final BooleanProperty UP_SCALE = BooleanProperty.of("upscale");
+   public static final BooleanProperty UP_SCALE = BooleanProperty.of("upscale");
+
 
    private static final VoxelShape UP_SHAPE =
            Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 2.0D, 14.0D);
@@ -74,14 +72,9 @@ public class Badge extends Block implements Waterloggable {
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
        if (!world.isClient) {
-           if (player.isSneaking()) {
-               // Shift + right click
                boolean upscale = !state.get(UP_SCALE);
                world.setBlockState(pos, state.with(UP_SCALE, upscale));
-           } else {
-               // Normal right click
 
-           }
        }
         return ActionResult.success(world.isClient);
     }
@@ -112,4 +105,3 @@ public class Badge extends Block implements Waterloggable {
        };
     }
 }
-
