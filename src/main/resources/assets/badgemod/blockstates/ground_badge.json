@@ -1,0 +1,33 @@
+{
+  "variants": {
+    "upscale=false,face=up,facing=north": { "model": "badgemod:block/ground_badge", "uvlock": false },
+    "upscale=false,face=up,facing=east": { "model": "badgemod:block/ground_badge", "y": 90, "uvlock": false },
+    "upscale=false,face=up,facing=south": { "model": "badgemod:block/ground_badge", "y": 180, "uvlock": false },
+    "upscale=false,face=up,facing=west": { "model": "badgemod:block/ground_badge", "y": 270, "uvlock": false },
+
+    "upscale=false,face=down,facing=north": { "model": "badgemod:block/ground_badge", "x": 180, "uvlock": false },
+    "upscale=false,face=down,facing=east": { "model": "badgemod:block/ground_badge", "x": 180, "y": 90, "uvlock": false },
+    "upscale=false,face=down,facing=south": { "model": "badgemod:block/ground_badge", "x": 180, "y": 180, "uvlock": false },
+    "upscale=false,face=down,facing=west": { "model": "badgemod:block/ground_badge", "x": 180, "y": 270, "uvlock": false },
+
+    "upscale=false,face=north": { "model": "badgemod:block/ground_badge", "x": 90, "uvlock": false },
+    "upscale=false,face=east": { "model": "badgemod:block/ground_badge", "x": 90, "y": 90, "uvlock": false },
+    "upscale=false,face=south": { "model": "badgemod:block/ground_badge", "x": 90, "y": 180, "uvlock": false },
+    "upscale=false,face=west": { "model": "badgemod:block/ground_badge", "x": 90, "y": 270, "uvlock": false },
+
+    "upscale=true,face=up,facing=north": { "model": "badgemod:upscaled_block/ground_badge", "uvlock": false },
+    "upscale=true,face=up,facing=east": { "model": "badgemod:upscaled_block/ground_badge", "y": 90, "uvlock": false },
+    "upscale=true,face=up,facing=south": { "model": "badgemod:upscaled_block/ground_badge", "y": 180, "uvlock": false },
+    "upscale=true,face=up,facing=west": { "model": "badgemod:upscaled_block/ground_badge", "y": 270, "uvlock": false },
+
+    "upscale=true,face=down,facing=north": { "model": "badgemod:upscaled_block/ground_badge", "x": 180, "uvlock": false },
+    "upscale=true,face=down,facing=east": { "model": "badgemod:upscaled_block/ground_badge", "x": 180, "y": 90, "uvlock": false },
+    "upscale=true,face=down,facing=south": { "model": "badgemod:upscaled_block/ground_badge", "x": 180, "y": 180, "uvlock": false },
+    "upscale=true,face=down,facing=west": { "model": "badgemod:upscaled_block/ground_badge", "x": 180, "y": 270, "uvlock": false },
+
+    "upscale=true,face=north": { "model": "badgemod:upscaled_block/ground_badge", "x": 90, "uvlock": false },
+    "upscale=true,face=east": { "model": "badgemod:upscaled_block/ground_badge", "x": 90, "y": 90, "uvlock": false },
+    "upscale=true,face=south": { "model": "badgemod:upscaled_block/ground_badge", "x": 90, "y": 180, "uvlock": false },
+    "upscale=true,face=west": { "model": "badgemod:upscaled_block/ground_badge", "x": 90, "y": 270, "uvlock": false }
+  }
+}
