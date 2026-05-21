@@ -5,13 +5,13 @@
 	"name": "Marz's Gym Badge Mod",
 	"description": "Mod to create custom gym badges for cobblemon",
 	"authors": [
-		"Me!"
+		"Marz"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/Marzuq925/GymBadgeMod",
+		"sources": "https://github.com/Marzuq925/GymBadgeMod"
 	},
-	"license": "MIT",
+	"license": "LGPLv2.1",
 	"icon": "assets/badgemod/icon.png",
 	"environment": "*",
 	"entrypoints": {
