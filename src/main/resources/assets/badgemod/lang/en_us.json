@@ -6,5 +6,13 @@
   "block.badgemod.dragon_badge": "Dragon Badge",
   "block.badgemod.bug_badge": "Bug Badge",
   "block.badgemod.dark_badge": "Dark Badge",
-  "block.badgemod.ground_badge": "Ground Badge"
+  "block.badgemod.ground_badge": "Ground Badge",
+  "item.badgemod.ice_badge": "Ice Badge",
+  "item.badgemod.steel_badge": "Steel Badge",
+  "item.badgemod.poison_badge": "Poison Badge",
+  "item.badgemod.ghost_badge": "Ghost Badge",
+  "item.badgemod.dragon_badge": "Dragon Badge",
+  "item.badgemod.bug_badge": "Bug Badge",
+  "item.badgemod.dark_badge": "Dark Badge",
+  "item.badgemod.ground_badge": "Ground Badge"
 }
